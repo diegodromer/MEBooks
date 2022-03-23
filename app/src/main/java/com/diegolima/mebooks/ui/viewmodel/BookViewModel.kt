@@ -15,8 +15,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BookViewModel : ViewModel() {
-    var liveData: MutableLiveData<EditorialBooks> = MutableLiveData() //= MutableLiveData()
-    var liveDataId: MutableLiveData<EditorialBooks> = MutableLiveData() //= MutableLiveData()
+    var liveData: MutableLiveData<EditorialBooks> = MutableLiveData()
+    var liveDataId: MutableLiveData<EditorialBooks> = MutableLiveData()
 
     fun getLiveDataObserver(): MutableLiveData<EditorialBooks>{
         return liveData

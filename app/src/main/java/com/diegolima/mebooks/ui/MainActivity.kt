@@ -60,10 +60,7 @@ class MainActivity : AppCompatActivity(), ClickListener {
         }
     }
 
-    //tanto a criacao do recuclerview qnato o click esta sendo setado direto aqui, naon esta usando mvbvbm
-
     override fun onItemClick(view: View, book: Book?) {
-        //Toast.makeText(this, "clicado", Toast.LENGTH_SHORT).show()
         intent = Intent(this@MainActivity, DetailsActivity::class.java).apply {
             putExtra("book", book)
         }
@@ -73,7 +70,7 @@ class MainActivity : AppCompatActivity(), ClickListener {
     private fun initViewModel() {
         viewModel?.getLiveDataObserver()?.observe(this, Observer {
             if (it != null) {
-                editorialBookViewAdapter?.setBooksList(it) //setando os valores do adapter aqui
+                editorialBookViewAdapter?.setBooksList(it)
                 editorialBookViewAdapter?.notifyDataSetChanged()
             } else {
                 Toast.makeText(this, "Error in getting list", Toast.LENGTH_SHORT).show()

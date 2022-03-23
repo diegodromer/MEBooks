@@ -13,7 +13,6 @@ interface Service {
     @GET("book?titulo=all")
     fun getBooks(): Call<EditorialBooks>
 
-    //9788521213284
     @GET("book")
     fun getBook(@Query("isbn", encoded = true) id: String): Call<EditorialBooks>
 }

@@ -21,18 +21,6 @@ class EditorialBookViewAdapter (private val listener: ClickListener) :
         notifyDataSetChanged()
     }
 
-    /*fun bind(book: Book){
-        isbn.text = book.isbn
-        title.text = book.titulo
-        subtitle.text = book.subtitulo
-
-        cardView.setOnClickListener {
-
-            //OnClick.clickBook(book)
-            //Toast.makeText(activity, "${book.titulo}", Toast.LENGTH_SHORT).show()
-        }
-    }*/
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
