@@ -6,19 +6,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.diegolima.mebooks.R
-import com.diegolima.mebooks.domain.models.Book
 import com.diegolima.mebooks.domain.models.EditorialBooks
 import com.diegolima.mebooks.ui.ClickListener
 import com.google.android.material.card.MaterialCardView
 
-//class EditorialBookViewAdapter(val booksList: EditorialBooks?, var onClick: OnClick) :
 class EditorialBookViewAdapter (private val listener: ClickListener) :
     RecyclerView.Adapter<EditorialBookViewAdapter.BookViewHolder?>() {
     private var booksList: EditorialBooks? = null
 
     fun setBooksList(booksList: EditorialBooks?) {
         this.booksList = booksList
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
@@ -42,10 +39,10 @@ class EditorialBookViewAdapter (private val listener: ClickListener) :
     }
 
     override fun getItemCount(): Int {
-        if (booksList == null){
-            return 0
+        return if (booksList == null){
+            0
         }else{
-            return booksList?.books!!.size
+            booksList?.books!!.size
         }
     }
 

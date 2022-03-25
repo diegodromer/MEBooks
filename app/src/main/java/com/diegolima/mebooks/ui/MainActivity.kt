@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -17,24 +16,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.diegolima.mebooks.R
-import com.diegolima.mebooks.core.retrofit
 import com.diegolima.mebooks.domain.models.Book
-import com.diegolima.mebooks.domain.models.EditorialBooks
-import com.diegolima.mebooks.domain.network.Service
 import com.diegolima.mebooks.ui.adapter.EditorialBookViewAdapter
 import com.diegolima.mebooks.ui.viewmodel.BookViewModel
-import com.diegolima.mebooks.util.Constants
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), ClickListener {
     private lateinit var bookRecyclerView: RecyclerView
-    var editorialBookViewAdapter: EditorialBookViewAdapter? = null
-    lateinit var edtIsbnBook: EditText
-    lateinit var btnSearchBook: Button
-    lateinit var tvResultBook: TextView
-    var viewModel: BookViewModel? = null
+    private var editorialBookViewAdapter: EditorialBookViewAdapter? = null
+    private lateinit var edtIsbnBook: EditText
+    private lateinit var btnSearchBook: Button
+    private lateinit var tvResultBook: TextView
+    private var viewModel: BookViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +38,7 @@ class MainActivity : AppCompatActivity(), ClickListener {
         bookRecyclerView = findViewById(R.id.recyclerView)
         viewModel = ViewModelProvider(this).get(BookViewModel::class.java)
 
-        showKeyboard();
+        showKeyboard()
         initRecyclerView()
         initViewModel()
         initSearch()

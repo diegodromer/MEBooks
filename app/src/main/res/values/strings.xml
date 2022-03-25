@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MEBooks</string>
+    <string name="txtTitulo">Título:</string>
+    <string name="txtDetails">Título - Details</string>
 </resources>

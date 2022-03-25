@@ -7,8 +7,8 @@ import com.diegolima.mebooks.R
 import com.diegolima.mebooks.domain.models.Book
 
 class DetailsActivity : AppCompatActivity() {
-    lateinit var titulo: TextView
-    var book: Book? = null
+    private lateinit var titulo: TextView
+    private var book: Book? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

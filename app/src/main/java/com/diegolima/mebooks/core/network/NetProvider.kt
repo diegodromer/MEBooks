@@ -1,9 +1,9 @@
-package com.diegolima.mebooks.core
+package com.diegolima.mebooks.core.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class retrofit {
+class NetProvider {
     companion object {
         fun getRetrofitInstance(url: String) : Retrofit {
             return Retrofit.Builder()

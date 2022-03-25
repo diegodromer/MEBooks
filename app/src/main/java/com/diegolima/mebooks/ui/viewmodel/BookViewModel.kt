@@ -1,14 +1,10 @@
 package com.diegolima.mebooks.ui.viewmodel
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.diegolima.mebooks.core.retrofit
-import com.diegolima.mebooks.domain.models.Book
+import com.diegolima.mebooks.core.network.NetProvider
 import com.diegolima.mebooks.domain.models.EditorialBooks
 import com.diegolima.mebooks.domain.network.Service
-import com.diegolima.mebooks.ui.adapter.EditorialBookViewAdapter
 import com.diegolima.mebooks.util.Constants
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +23,7 @@ class BookViewModel : ViewModel() {
     }
 
     fun makeApiCall(){
-        val retroInstance = retrofit.getRetrofitInstance(Constants.BASE_URL)
+        val retroInstance = NetProvider.getRetrofitInstance(Constants.BASE_URL)
         val retroService = retroInstance.create(Service::class.java)
         val call = retroService.getBooks()
         call.enqueue(object : Callback<EditorialBooks>{
@@ -46,7 +42,7 @@ class BookViewModel : ViewModel() {
 
     fun makeApiCallId(book: String) {
         val retrofitClient =
-            retrofit.getRetrofitInstance(Constants.BASE_URL)
+            NetProvider.getRetrofitInstance(Constants.BASE_URL)
         val requestEndpoint = retrofitClient.create(Service::class.java)
 
         requestEndpoint.getBook(book)
